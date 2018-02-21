@@ -66,7 +66,7 @@ if($return !== 0) {
 } else
 	echo "Database backed up successfully\n\n\n";
 
-if (zip('/manpost/', $c['save_to'] . 'zipp.zip') == false)
+if (zip($c['web_folder'], $c['save_to'] . 'zipp.zip') == false)
 	echo "Backup of the website was not successful (PHP ZIP extension not detected)\n";
 else
 	echo $c['web_folder'] . " Successfully archive\n";

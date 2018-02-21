@@ -19,6 +19,10 @@ $c = array(
 	'download_secret'	=> '6304a0cb52eaf0bb57cfc6b2d67c5fef'
 	);
 	
+if (!isset($_GET['f'], $_GET['key'])) {
+	die();
+}
+	
 $secret = $_GET['key'];
 if (strlen($secret) <> 32 and $secret != $c['download_secret']) {
 	echo "Invalid download key!";
@@ -37,6 +41,8 @@ if ($f == "zip") {
 	$mime = "text/plain";
 	$output_name = $download_name . "-db.sql";
 }
+else
+	die();
 	
 function sendHeaders($file, $type, $name=NULL)
 {
